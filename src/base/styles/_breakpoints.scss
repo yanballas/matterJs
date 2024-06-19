@@ -1,0 +1,72 @@
+$breakpoints-from: (
+        'sm': 0px,
+        'md': 414px,
+        'lg': 656px,
+        'xl': 1020px,
+        'xxl': 1340px,
+        'devices': 0px,
+) !default;
+
+$breakpoints-to: (
+        'sm': 413px,
+        'md-': 530px,
+        'md': 655px,
+        'md+': 699px,
+        'lg': 1019px,
+        'xl': 1339px,
+        'devices': 1024px,
+) !default;
+
+// Точное совпадение
+@mixin screen-eq($breakpoint) {
+  @if $breakpoint == 'xxl' {
+    @media (min-width: map-get($breakpoints-from, $breakpoint)) {
+      @content;
+    }
+  } @else {
+    @media (min-width: map-get($breakpoints-from, $breakpoint)) and (max-width: map-get($breakpoints-to, $breakpoint)) {
+      @content;
+    }
+  }
+}
+
+// Больше чем
+// Например screen-gte(sm) вернет sm и больше
+@mixin screen-gt($breakpoint) {
+  @media (min-width: map-get($breakpoints-from, $breakpoint)) {
+    @content;
+  }
+}
+
+// Больше чем, не включая переданный
+// Например screen-gte(sm) вернет md и больше
+@mixin screen-gte($breakpoint) {
+  @media (min-width: map-get($breakpoints-to, $breakpoint)) {
+    @content;
+  }
+}
+
+// Меньше чем
+@mixin screen-lt($breakpoint) {
+  @media (max-width: map-get($breakpoints-to, $breakpoint)) {
+    @content;
+  }
+}
+
+// Меньше чем, не включая переданный
+// Внимательно отслеживайте место вызова этого миксина
+// screen-lte('md') вызванный перед screen-lte('lg') не сработает
+// Правильный порядок:
+//
+// @include screen-lte('lg') {
+//   background: coral;
+// }
+//
+// @include screen-lte('md') {
+//   background: blue;
+// }
+@mixin screen-lte($breakpoint) {
+  @media (max-width: map-get($breakpoints-from, $breakpoint)) {
+    @content;
+  }
+}

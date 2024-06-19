@@ -1,0 +1,1 @@
+export { routingInit } from './routing';

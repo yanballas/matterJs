@@ -1,0 +1,26 @@
+// COLORS
+$color-dark: #000;
+$color-light: #fff;
+$color-description: #757575;
+
+// FONTS
+// $font-name: "main", sans-serif;
+// $font-dlc-name: "dlc", sans-serif;
+
+@mixin horizontalSpace {
+  padding: 0 64px;
+}
+
+@mixin verticalSpace {
+  padding: 64px 0;
+}
+
+@mixin sectionSpace {
+  padding: 64px;
+}
+
+@mixin flexBox {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

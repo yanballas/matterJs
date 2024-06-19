@@ -1,0 +1,56 @@
+<style>
+  .matter-container {
+    padding-left: 60px;
+    padding-right: 60px;
+  }
+  .matter-template {
+    width: 100%;
+    height: 800px;
+    overflow: hidden;
+    border-radius: 50px;
+  }
+  .matter-template > canvas {
+    border-radius: 50px;
+  }
+
+  @media screen and (max-width: 1919px) {
+
+    .matter-template {
+      height: 600px;
+    }
+    .matter-container {
+      padding-left: 40px;
+      padding-right: 40px;
+    }
+    .matter-template {
+      border-radius: 25px;
+    }
+    .matter-template > canvas {
+    border-radius: 25px;
+    }
+  }
+
+  @media screen and (max-width: 960px) {
+    .matter-container {
+      padding-left: 10px;
+      padding-right: 10px;
+    }
+  }
+
+  @media screen and (max-width: 480px) {
+    .matter-template {
+      height: 540px;
+    }
+    .matter-template {
+      border-radius: 15px;
+    }
+    .matter-template > canvas {
+    border-radius: 15px;
+    }
+  }
+</style>
+
+<div class="matter-container">
+  <div class="matter-template">
+  </div>
+</div>
